@@ -1,0 +1,22 @@
+{
+  "name": "test-api-tickets-doublevp",
+  "version": "1.0.0",
+  "description": "Crud Nodejs tickets",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanrraider666/test-api-tickets-doublevp.git"
+  },
+  "author": "juandiaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanrraider666/test-api-tickets-doublevp/issues"
+  },
+  "homepage": "https://github.com/juanrraider666/test-api-tickets-doublevp#readme"
+}
