@@ -1,11 +1,24 @@
 const debug = require('debug')('app:controller');
 const {MongoBackOfficeTicketRepository} = require("../../../../Contexts/BackOffice/Tickets/infrastructure/persistence/MongoBackOfficeTicketRepository");
 const {BackOfficeTicketsResponse} = require("../../../../Contexts/BackOffice/Tickets/application/BackofficeTicketsResponse");
-
+const {
+    SearchTicketsByCriteria
+} = require('../../../../Contexts/Backoffice/Tickets/application/Search/SearchTicketsByCriteria');
 
 module.exports.TicketsGetController = {
     get: async (req, res) => {
-        let tickets = await MongoBackOfficeTicketRepository.searchAll();
+        const {query: queryParams} = req;
+        const {filters, orderBy, order, limit, offset} = queryParams;
+        /* Criteria pattern*/
+        const query = new SearchTicketsByCriteria(
+            parseFilters(JSON.parse(filters)),
+            orderBy,
+            order,
+            limit ? Number(limit) : undefined,
+            offset ? Number(offset) : undefined
+        );
+
+        let tickets = await MongoBackOfficeTicketRepository.searchAll(query);
         BackOfficeTicketsResponse.success(res, 200, 'Success', tickets)
     },
     getBy: async (req, res) => {
@@ -13,4 +26,24 @@ module.exports.TicketsGetController = {
         const ticket = await MongoBackOfficeTicketRepository.search(id);
         BackOfficeTicketsResponse.success(res, 200, 'Success', ticket)
     },
+}
+
+
+const parseFilters = (params) => {
+    if (!params) {
+        return new Array();
+    }
+
+    console.log(params)
+    return params.map(filter => {
+        const field = filter.field;
+        const value = filter.value;
+        const operator = filter.operator;
+
+        return new Map([
+            ['field', field],
+            ['operator', operator],
+            ['value', value]
+        ]);
+    });
 }
