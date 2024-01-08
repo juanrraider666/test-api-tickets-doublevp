@@ -8,10 +8,11 @@ const {
 module.exports.TicketsGetController = {
     get: async (req, res) => {
         const {query: queryParams} = req;
-        const {filters, orderBy, order, limit, offset} = queryParams;
+        const {filters = null, orderBy = 'desc', order = null, limit = null, offset = null} = queryParams;
+
         /* Criteria pattern*/
         const query = new SearchTicketsByCriteria(
-            parseFilters(JSON.parse(filters)),
+            parseFilters(filters),
             orderBy,
             order,
             limit ? Number(limit) : undefined,
@@ -30,12 +31,12 @@ module.exports.TicketsGetController = {
 
 
 const parseFilters = (params) => {
+
     if (!params) {
         return new Array();
     }
 
-    console.log(params)
-    return params.map(filter => {
+    return JSON.parse(params).map(filter => {
         const field = filter.field;
         const value = filter.value;
         const operator = filter.operator;
