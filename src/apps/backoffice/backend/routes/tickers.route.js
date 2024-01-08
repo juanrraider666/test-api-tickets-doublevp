@@ -1,11 +1,10 @@
-const {TicketsGetController} = require("../../../backend/controllers/TicketsGetController");
-
 const express = require('express');
 
 /* manejamos Controladores separados, para dejar abierto a migrar a ts */
-const {TicketsPostController} = require("../../../backend/controllers/TicketsPostController");
-const {TicketsPutController} = require("../../../backend/controllers/TicketsPutController");
-const {TicketsDeleteController} = require("../../../backend/controllers/TicketsDeleteController");
+const {TicketsPostController} = require("../controllers/TicketsPostController");
+const {TicketsPutController} = require("../controllers/TicketsPutController");
+const {TicketsDeleteController} = require("../controllers/TicketsDeleteController");
+const {TicketsGetController} = require("../controllers/TicketsGetController");
 
 const router = express.Router();
 

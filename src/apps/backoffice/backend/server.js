@@ -1,8 +1,8 @@
 const express = require('express');
 const debug = require('debug')('app:main');
 const {Config} = require('./BackendConfigReader')
-const {Tickets} = require("../frontend/src/services/tickets");
 const {INTERNAL_SERVER_ERROR} = require("http-status");
+const {Tickets} = require("./routes/tickers.route");
 const app = express();
 
 app.use(express.json());
