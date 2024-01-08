@@ -29,10 +29,15 @@ const update = async (id, ticket) => {
     await collection.updateOne({ _id: new ObjectId(id) }, { $set: ticket }, { upsert: true });
 }
 
+const remove = async (id) => {
+    const collection = await MongoRepository.collection();
+    return await collection.deleteOne({ _id: new ObjectId(id) });
+}
 
 module.exports.MongoBackOfficeTicketRepository = {
     searchAll,
     create,
     update,
+    remove,
     search,
 }
