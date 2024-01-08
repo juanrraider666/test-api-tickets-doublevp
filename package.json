@@ -2,13 +2,13 @@
   "name": "test-api-tickets-doublevp",
   "version": "1.0.0",
   "description": "Crud Nodejs tickets",
-  "main": "index.js",
+  "main": "src/server.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "set DEBUG=app:* & nodemon ./src/apps/backoffice/backend/server.js"
+    "dev": "set DEBUG=app:* & nodemon ./src/server.js"
   },
   "repository": {
     "type": "git",
