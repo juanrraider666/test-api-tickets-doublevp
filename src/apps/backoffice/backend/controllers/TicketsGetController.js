@@ -5,7 +5,7 @@ const {BackOfficeTicketsResponse} = require("../../../../Contexts/BackOffice/Tic
 
 module.exports.TicketsGetController = {
     get: async (req, res) => {
-        const tickets = MongoBackOfficeTicketRepository.searchAll();
+        let tickets = await MongoBackOfficeTicketRepository.searchAll();
         BackOfficeTicketsResponse.success(res, 200, 'Success', tickets)
     },
     getBy: async (req, res) => {

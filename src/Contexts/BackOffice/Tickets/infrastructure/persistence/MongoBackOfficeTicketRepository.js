@@ -4,8 +4,7 @@ const { ObjectId } = require("mongodb");
 
 const searchAll = async () => {
     const collection = await MongoRepository.collection();
-    const documents = await collection.find({}, {}).toArray();
-    console.log(documents)
+    return await collection.find({}, {}).toArray();
 }
 
 const search = async (id) => {
