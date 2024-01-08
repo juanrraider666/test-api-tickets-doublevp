@@ -1,4 +1,5 @@
-FROM node:18.17.1-slim
+FROM node:18.19.0-slim
+
 
 WORKDIR /code
 
