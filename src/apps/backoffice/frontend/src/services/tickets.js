@@ -2,6 +2,7 @@ const {TicketsGetController} = require("../../../backend/controllers/TicketsGetC
 
 const express = require('express');
 const {TicketsPostController} = require("../../../backend/controllers/TicketsPostController");
+const {TicketsPutController} = require("../../../backend/controllers/TicketsPutController");
 
 const router = express.Router();
 
@@ -10,6 +11,7 @@ module.exports.Tickets = (app) => {
         .get('/', TicketsGetController.get)
         .get('/:id', TicketsGetController.getBy)
         .post('/', TicketsPostController.post)
+        .put('/:id', TicketsPutController.put)
     ;
 
     app.use('/api/tickets', router);

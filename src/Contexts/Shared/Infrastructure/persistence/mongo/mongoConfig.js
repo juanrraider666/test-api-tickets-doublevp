@@ -41,7 +41,7 @@ module.exports.Database = (collection) => new Promise(async (resolve, reject) =>
 
     try {
         const db = client.db(Config.mongo.url.name);
-        debug('Conexion realizada');
+        debug('Connection is Running');
         resolve(db.collection(collection))
     }catch (error) {
         reject(error)
