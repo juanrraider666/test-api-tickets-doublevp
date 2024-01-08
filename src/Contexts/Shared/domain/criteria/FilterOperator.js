@@ -20,7 +20,7 @@ class FilterOperator {
             }
         }
 
-        console.log(`The filter operator ${value} is invalid`);
+        new Error(`The filter operator ${value} is invalid`);
     }
 
     isPositive() {

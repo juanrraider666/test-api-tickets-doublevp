@@ -6,7 +6,6 @@ const {MongoCriteriaConverter} = require("./MongoCriteriaConverter");
 const searchAll = async (criteria) => {
     const criteriaConverter = new MongoCriteriaConverter();
     const query = criteriaConverter.convert(criteria);
-    console.log(query.filter)
     const collection = await MongoRepository.collection();
     return await collection.find(query.filter, {}).skip(query.skip).limit(query.limit).toArray();
 }
