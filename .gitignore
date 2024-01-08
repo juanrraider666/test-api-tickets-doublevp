@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.tmp
+logs/
+data
+test-results.xml
+/src/Contexts/Mooc/Courses/infrastructure/persistence/courses.*.repo
+/nbproject/
+/.idea/
+sql.sql
+/mysql/
