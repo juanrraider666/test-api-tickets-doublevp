@@ -17,7 +17,7 @@ Antes de comenzar, asegúrate de tener instalado NodeJS y npm en tu máquina. Ad
 Clone the repository:
 
 ```bash
-git clone (https://github.com/juanrraider666/test-api-tickets-doublevp)https://github.com/juanrraider666/test-api-tickets-doublevp
+git clone https://github.com/juanrraider666/test-api-tickets-doublevp
 cd test-api-tickets-doublevp
 
 ```
