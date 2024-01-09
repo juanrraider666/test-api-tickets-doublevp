@@ -13,17 +13,18 @@ class MongoConfig {
     }
 
     static async getClient() {
-        return MongoConfig.clients["shared"] = new MongoClient(Config.mongo.url.env);
+        return this.clients["shared"] ?? null;
     }
 
     static async registerClient(context, client)  {
-        MongoConfig.clients[context] = client;
+        this.clients[context] = client;
     }
 
     async createClient() {
-        let client = MongoConfig.getClient();
+        let client = await MongoConfig.getClient();
 
         if (!client) {
+
             client = await MongoConfig.createAndConnectClient();
 
             MongoConfig.registerClient('shared', client);
